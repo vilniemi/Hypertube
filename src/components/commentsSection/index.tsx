@@ -26,7 +26,10 @@ const CommentsSection = ({
 }) => {
 	const { data: session } = useSession();
 	const [addCommentBtn, setAddCommentBtn] = useState(true);
-	const mutation = trpc.comment.createComment.useMutation();
+	const mutation = trpc.comment.createComment.useMutation(  refetchQueries: [
+    {query: GET_POST}, // DocumentNode object parsed with gql
+    'getMovieComments' // Query name
+  ],);
 	const addComment = (imdb_code: number, comment_text: string) => {
 		try {
 			mutation.mutate({
@@ -39,7 +42,11 @@ const CommentsSection = ({
 			console.log(err);
 		}
 	};
-	console.log(session?.user);
+	// console.log(session?.user);
+	const { data, error } = trpc.comment.getMovieComments.useQuery({
+		imdb_code: parseInt(imdb_code),
+	});
+
 	const {
 		watch,
 		register,

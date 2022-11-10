@@ -26,17 +26,9 @@ import LoadingLogo from '../../components/loadingLogo';
 const MoviePage = () => {
 	const router = useRouter();
 	const { t }: i18translateType = useTranslation('common');
-	const { data, error } = trpc.comment.getMovieComments.useQuery({
-		imdb_code: parseInt(router.query.movieId as string),
-	});
-	//TRPCClientError!router.isReady
-	useEffect(() => {
-		// setComments(data.comments as any);
 
-		if (data) {
-			setComments(data.comments as any);
-		}
-	}, [data]);
+	//TRPCClientError!router.isReady
+
 	const movieId = router.query.movieId;
 	const [movie, setMovie] = useState<Movie>();
 	const [movieData, setMovieData] = useState<MovieData>();
@@ -48,7 +40,6 @@ const MoviePage = () => {
 		size: 0,
 	}); // THIS IS NEEDED TO PASS INFO TO API
 	// this is forced comments to display for now till we got real backend comments
-	const [comments, setComments] = useState([]);
 
 	useEffect(() => {
 		if (movieId?.length) {
@@ -148,16 +139,13 @@ const MoviePage = () => {
 										</Row>
 										<MovieDescription movieData={movieData} />
 										<hr />
-										{comments && (
-											<Row>
-												<Col>
-													<CommentsSection
-														comments={comments}
-														imdb_code={parseInt(router.query.movieId as string)}
-													/>
-												</Col>
-											</Row>
-										)}
+										<Row>
+											<Col>
+												<CommentsSection
+													imdb_code={parseInt(router.query.movieId as string)}
+												/>
+											</Col>
+										</Row>
 									</Container>
 								</Container>
 							</Card.Body>
