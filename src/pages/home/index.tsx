@@ -34,7 +34,9 @@ const Home = () => {
 		limit: '50',
 		description: '',
 		quality: '720p',
+		animation: 'off',
 	});
+	const [animation, setAnimation] = useState(false);
 	useEffect(() => {
 		const getMovies = async () => {
 			setIsLoading(true);
@@ -56,6 +58,7 @@ const Home = () => {
 						seeds: parseInt(filterInputs.seeds),
 						description: filterInputs.description,
 						genre: filterInputs.genre,
+						animation: filterInputs.animation,
 					},
 				});
 				setMovies(response.data);
@@ -89,6 +92,7 @@ const Home = () => {
 				seeds: parseInt(filterInputs.seeds),
 				description: filterInputs.description,
 				genre: filterInputs.genre,
+				animation: filterInputs.animation,
 			},
 		});
 		setMovies(response.data);
@@ -99,10 +103,20 @@ const Home = () => {
 		const { name, value } = e.target;
 		setsearch_ter(value);
 		getMovies();
-		// console.log(name);
-		// console.log(value);
+		console.log(name);
+		console.log(value);
 	};
 	const onFilterChange = (e: any) => {
+		console.log(filterInputs);
+		if (e.target.name == 'animation') {
+		// 	if (animation == false) {
+		// 		setAnimation(true);
+		// 	} else {
+		// 		setAnimation(false);
+		// 	}
+		// }
+
+		}
 		setFilterInputs({ ...filterInputs, [e.target.name]: e.target.value });
 	};
 

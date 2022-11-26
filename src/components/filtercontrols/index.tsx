@@ -251,6 +251,18 @@ const FilterControls = ({
 							</Form.Select>
 						</Container>
 					</Form.Group>
+
+					<Container>
+						<Form.Check
+							type="switch"
+							aria-label="Animation"
+							id="animation"
+							name="animation"
+							className="text-white"
+							label="Animation"
+							onChange={(e) => onFilterChange(e)}
+						/>
+					</Container>
 				</Form>
 			</AdvancedSearch>
 		</>

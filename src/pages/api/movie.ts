@@ -57,6 +57,9 @@ const filterSearch = async (req: NextApiRequest, res: NextApiResponse) => {
 						gt: input.fromRunTime,
 						lt: input.toRunTime,
 					},
+					genres: {
+						has: 'Animation',
+					},
 					rating: {
 						gt: input.imdbRating,
 					},

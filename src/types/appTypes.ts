@@ -157,4 +157,5 @@ export type FilterInputs = {
 	toRunTime: string;
 	limit: string;
 	description: string;
+	animation: string;
 };
