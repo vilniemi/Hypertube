@@ -84,6 +84,7 @@ model Movies {
   size       Int
   downloaded Int
   date       String
+  last_watch DateTime @default(now())
 }
 
 model Movie {

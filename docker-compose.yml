@@ -18,7 +18,9 @@ services:
 
   db:
     container_name: 'hypertube_db'
-    image: ramazanpolat/postgres_cron:11
+    build:
+      dockerfile: Dockerfile_pg
+      context: .
     restart: always
     ports:
       - 5432:5432
@@ -27,12 +29,11 @@ services:
     secrets:
       - db_password
     environment:
-      POSTGRES_USER: root
-      POSTGRES_DB: hypertube
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/db_password
       TZ: 'Europe/Helsinki'
       PGTZ: 'Europe/Helsinki'
-      DOCKER_BUILDKIT: 1 docker build .
 
   adminer:
     image: adminer
