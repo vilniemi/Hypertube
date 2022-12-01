@@ -18,29 +18,29 @@ const NavigationBar = () => {
 	const { i18n } = useTranslation('common');
 	const { data: session } = useSession();
 	const [userImg, setUserImg] = useState('/defaultImg2.png');
-	const { data } = trpc.user.get.useQuery(
-		{ id: !session?.token?.user?.id ? '0' : session?.token?.user?.id },
-		{
-			placeholderData: { id: '', name: 'Name', email: 'Email', password: '' },
-		}
-	);
+	// const { data } = trpc.user.get.useQuery(
+	// 	{ id: !session?.token?.user?.id ? '0' : session?.token?.user?.id },
+	// 	{
+	// 		placeholderData: { id: '', name: 'Name', email: 'Email', password: '' },
+	// 	}
+	// );
 	useEffect(() => {
 		setPageLanguage(i18n);
 	}, []);
-	useEffect(() => {
-		if (data?.user) {
-			if (data?.user?.image) {
-				data?.user?.image.includes('http')
-					? setUserImg(data?.user?.image)
-					: setUserImg(`/images/${data?.user?.image}`);
-			} else {
-				setUserImg('/defaultImg2.png');
-			}
-			// data?.user?.image !== null
-			// 	? setUserImg(`/images/${data?.user?.image}`)
-			// 	: setUserImg('/defaultImg2.png');
-		}
-	}, [data]);
+	// useEffect(() => {
+	// 	if (data?.user) {
+	// 		if (data?.user?.image) {
+	// 			data?.user?.image.includes('http')
+	// 				? setUserImg(data?.user?.image)
+	// 				: setUserImg(`/images/${data?.user?.image}`);
+	// 		} else {
+	// 			setUserImg('/defaultImg2.png');
+	// 		}
+	// 		// data?.user?.image !== null
+	// 		// 	? setUserImg(`/images/${data?.user?.image}`)
+	// 		// 	: setUserImg('/defaultImg2.png');
+	// 	}
+	// }, [data]);
 
 	return (
 		<>

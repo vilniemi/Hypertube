@@ -20,18 +20,18 @@ const MovieCardOverlay = ({
 	const { t }: i18translateType = useTranslation('common');
 
 	const { data: session } = useSession();
-	const { data: watchedMovies } = trpc.movies.getWatchedMovies.useQuery(
-		session?.token.user.id
-	);
+	// const { data: watchedMovies } = trpc.movies.getWatchedMovies.useQuery(
+	// 	session?.token.user.id
+	// );
 	const [watched, setWatched] = useState(false);
 
-	useEffect(() => {
-		if (movie?.id) {
-			if (watchedMovies?.movies) {
-				watchedMovies.movies.movies.includes(`${movie.id}`) && setWatched(true);
-			}
-		}
-	}, [watchedMovies]);
+	// useEffect(() => {
+	// 	if (movie?.id) {
+	// 		if (watchedMovies?.movies) {
+	// 			watchedMovies.movies.movies.includes(`${movie.id}`) && setWatched(true);
+	// 		}
+	// 	}
+	// }, [watchedMovies]);
 
 	return (
 		<Card.ImgOverlay className="p-0 d-flex justify-content-center movieCard-OverLay">
