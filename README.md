@@ -14,7 +14,7 @@ Hypertube is the last project of Hive Helsinki's web branch. It's a streaming we
 * Movie search
 * Movie streaming
 * Subtitles
-* Movie information from IMDB
+* Movie information from tmdb
 * Caching of movies for 30 days
 * Changing screen name, email, password, and profile picture
 * Password reset
@@ -77,3 +77,5 @@ This is also why we won't provide a deployed version of the app.
 * [Luke Lönnroth](https://github.com/Microsmosis): Streaming, back end and API
 * [Ville Niemi](https://github.com/vilniemi): Front end, back end and external API integration
 * [Jukka Ylimaula](https://github.com/Jukkay): DevOps, login/signup system, back end and API
+
+![alt text](http://url/to/img.png](https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg)
