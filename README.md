@@ -18,7 +18,7 @@ Hypertube is the last project of Hive Helsinki's web branch. It's a streaming we
 * Movie search
 * Movie streaming
 * Subtitles
-* Movie information from IMDB
+* Movie information from tmdb
 * Caching of movies for 30 days
 * Changing screen name, email, password, and profile picture
 * Password reset
